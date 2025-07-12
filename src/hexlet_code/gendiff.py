@@ -43,6 +43,7 @@ def parse_args():
     )
     return parser.parse_args()
 
+
 def main():
     args = parse_args()
     print(f"Comparing: {args.first_file} VS {args.second_file}")
