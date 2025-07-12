@@ -25,7 +25,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=your_project_key
-            -Dsonar.organization=your_organization
+            -Dsonar.projectKey=python-project-50
+            -Dsonar.organization=hellman1721
             -Dsonar.python.coverage.reportPaths=coverage.xml
 
