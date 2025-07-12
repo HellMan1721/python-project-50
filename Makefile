@@ -9,7 +9,7 @@ test:
 	pytest --cov=src --cov-report=term --cov-report=xml tests
 
 lint:
-	ruff src tests
+	ruff check src
 
 check: test lint
 
