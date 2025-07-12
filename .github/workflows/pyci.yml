@@ -14,10 +14,12 @@ jobs:
         with:
           python-version: '3.12'
         # make depends on uv
-      - name: Install dependencies
-        run: |
-          pip install uv
-          make install
+      - name: Set up project environment
+	run: |
+          uv venv
+          source .venv/bin/activate
+          uv pip install -e .
+          uv pip install pytest pytest-cov ruff
       - name: Run linter and pytest
         run: |
           make check
