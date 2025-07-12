@@ -1,6 +1,6 @@
 install:
 	uv pip install -e .
-	uv pip install -r requirements.txt
+	uv pip install -r pyproject.toml
 
 run:
 	uv run hexlet-python-package

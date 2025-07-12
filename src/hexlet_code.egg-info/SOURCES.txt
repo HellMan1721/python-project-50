@@ -8,3 +8,4 @@ src/hexlet_code.egg-info/SOURCES.txt
 src/hexlet_code.egg-info/dependency_links.txt
 src/hexlet_code.egg-info/entry_points.txt
 src/hexlet_code.egg-info/top_level.txt
+tests/test_gendiff.py
