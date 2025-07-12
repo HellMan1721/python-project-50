@@ -13,6 +13,12 @@ lint:
 
 check: test lint
 
+
+lint-fix:
+	ruff check src --fix
+
+test-coverage: test
+
 build:
 	uv build
 
