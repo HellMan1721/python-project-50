@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           uv pip install -e . --system
-          uv pip install pytest pytest-cov ruff --system
+          uv pip install pytest pytest-cov ruff pyyaml --system
       - name: Run linter and pytest
         run: |
           make check
