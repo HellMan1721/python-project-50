@@ -1,9 +1,10 @@
 import os
 from hexlet_code.gendiff import generate_diff
 
-def test_flat_json():
-    file1 = os.path.join('tests', 'test_data', 'file1.json')
-    file2 = os.path.join('tests', 'test_data', 'file2.json')
+
+def test_flat_yaml():
+    file1 = os.path.join('tests', 'test_data', 'filepath1.yaml')
+    file2 = os.path.join('tests', 'test_data', 'filepath2.yaml')
     with open(os.path.join('tests', 'test_data', 'expected.txt')) as f:
         expected = f.read().strip()
 
