@@ -1,24 +1,17 @@
-install:
-	uv pip install -e .
-	uv pip install -r pyproject.toml
+.PHONY: install test lint
 
-run:
-	uv run hexlet-python-package
+install:
+	@echo "📦 Installing dependencies..."
+	@. venv/Scripts/activate 2>/dev/null || source venv/bin/activate; \
+	pip install -e .; \
+	pip install -r requirements.txt 2>/dev/null || true
 
 test:
+	@echo "🧪 Running tests..."
+	@. venv/Scripts/activate 2>/dev/null || source venv/bin/activate; \
 	pytest --cov=src --cov-report=term --cov-report=xml tests
 
 lint:
+	@echo "🔍 Running linter..."
+	@. venv/Scripts/activate 2>/dev/null || source venv/bin/activate; \
 	ruff check src
-
-check: test lint
-
-
-lint-fix:
-	ruff check src --fix
-
-test-coverage: test
-
-build:
-	uv build
-
