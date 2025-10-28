@@ -1,4 +1,4 @@
-.PHONY: install test lint git-push
+.PHONY: install test lint git-push check
 
 install:
 	@echo "📦 Installing dependencies..."
@@ -25,3 +25,6 @@ git-push:
 	@echo "🚀 Pushing to GitHub..."
 	git add .
 	git diff --quiet && git diff --cached --quiet || (git commit -m "update" && git push)
+
+check: lint test
+	@echo "✅ All checks passed"
