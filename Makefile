@@ -2,9 +2,14 @@
 
 install:
 	@echo "📦 Installing dependencies..."
-	@. venv/Scripts/activate 2>/dev/null || source venv/bin/activate; \
-	pip install -e .; \
-	pip install -r requirements.txt 2>/dev/null || true
+	@if command -v uv >/dev/null 2>&1; then \
+		echo "Using uv to install dependencies..."; \
+		uv sync; \
+	else \
+		. venv/Scripts/activate 2>/dev/null || source venv/bin/activate; \
+		pip install -e .; \
+		pip install -r requirements.txt 2>/dev/null || true; \
+	fi
 
 test:
 	@echo "🧪 Running tests..."

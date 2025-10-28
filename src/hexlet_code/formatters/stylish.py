@@ -20,7 +20,9 @@ def _stringify(value, depth=0, in_nested=False):
     lines = ['{']
     for k in sorted(value.keys()):
         v = value[k]
-        lines.append(f'{inner_indent}{k}: {_stringify(v, depth + 1, in_nested=True)}')
+        lines.append(
+            f'{inner_indent}{k}: {_stringify(v, depth + 1, in_nested=True)}'
+            )
     lines.append(f'{closing_indent}}}')
     return '\n'.join(lines)
 
@@ -47,10 +49,16 @@ def format_diff(diff_dict, depth=0):
             lines.append(f'{base_indent}  - {key}: {val}')
         elif ntype == 'added':
             val = _stringify(node['value'], depth + 1, in_nested=nested_flag)
-            lines.append(f'{base_indent}  + {key}: {val}')
+            lines.append(
+                f'{base_indent}  + {key}: {val}'
+                )
         elif ntype == 'changed':
-            old = _stringify(node['old_value'], depth + 1, in_nested=nested_flag)
-            new = _stringify(node['new_value'], depth + 1, in_nested=nested_flag)
+            old = _stringify(
+                node['old_value'], depth + 1, in_nested=nested_flag
+                )
+            new = _stringify(
+                node['new_value'], depth + 1, in_nested=nested_flag
+                )
             lines.append(f'{base_indent}  - {key}: {old}')
             lines.append(f'{base_indent}  + {key}: {new}')
 
