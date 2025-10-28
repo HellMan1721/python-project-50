@@ -1,4 +1,4 @@
-.PHONY: install test lint git-push check
+.PHONY: install test lint git-push check test-coverage
 
 install:
 	@echo "📦 Installing dependencies..."
@@ -28,3 +28,9 @@ git-push:
 
 check: lint test
 	@echo "✅ All checks passed"
+
+test-coverage:
+	@echo "🧪 Running tests with coverage..."
+	@. venv/Scripts/activate 2>/dev/null || source venv/bin/activate; \
+	pytest --cov=src --cov-report=term --cov-report=xml tests
+
