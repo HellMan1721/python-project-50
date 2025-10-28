@@ -6,7 +6,7 @@ def _format_primitive(value, in_nested=False):
     if isinstance(value, (int, float)):
         return str(value)
     if isinstance(value, str):
-        return f'"{value}"' if in_nested else value
+        return value if in_nested else f'"{value}"'
     return str(value)
 
 
@@ -20,7 +20,6 @@ def _stringify(value, depth=0, in_nested=False):
     lines = ['{']
     for k in sorted(value.keys()):
         v = value[k]
-        # Все значения внутри dict считаем "nested"
         lines.append(f'{inner_indent}{k}: {_stringify(v, depth + 1, in_nested=True)}')
     lines.append(f'{closing_indent}}}')
     return '\n'.join(lines)
@@ -35,21 +34,23 @@ def format_diff(diff_dict, depth=0):
         node = diff_dict[key]
         ntype = node['type']
 
+        nested_flag = depth > 0
+
         if ntype == 'nested':
             children = format_diff(node['children'], depth + 1)
             lines.append(f'{base_indent}{indent_unit}{key}: {children}')
         elif ntype == 'unchanged':
-            val = _stringify(node['value'], depth + 1, in_nested=False)
+            val = _stringify(node['value'], depth + 1, in_nested=nested_flag)
             lines.append(f'{base_indent}{indent_unit}{key}: {val}')
         elif ntype == 'removed':
-            val = _stringify(node['value'], depth + 1, in_nested=True)
+            val = _stringify(node['value'], depth + 1, in_nested=nested_flag)
             lines.append(f'{base_indent}  - {key}: {val}')
         elif ntype == 'added':
-            val = _stringify(node['value'], depth + 1, in_nested=True)
+            val = _stringify(node['value'], depth + 1, in_nested=nested_flag)
             lines.append(f'{base_indent}  + {key}: {val}')
         elif ntype == 'changed':
-            old = _stringify(node['old_value'], depth + 1, in_nested=True)
-            new = _stringify(node['new_value'], depth + 1, in_nested=True)
+            old = _stringify(node['old_value'], depth + 1, in_nested=nested_flag)
+            new = _stringify(node['new_value'], depth + 1, in_nested=nested_flag)
             lines.append(f'{base_indent}  - {key}: {old}')
             lines.append(f'{base_indent}  + {key}: {new}')
 

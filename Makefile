@@ -1,4 +1,4 @@
-.PHONY: install test lint
+.PHONY: install test lint git-push
 
 install:
 	@echo "📦 Installing dependencies..."
@@ -15,3 +15,8 @@ lint:
 	@echo "🔍 Running linter..."
 	@. venv/Scripts/activate 2>/dev/null || source venv/bin/activate; \
 	ruff check src
+
+git-push:
+	@echo "🚀 Pushing to GitHub..."
+	git add .
+	git diff --quiet && git diff --cached --quiet || (git commit -m "update" && git push)
