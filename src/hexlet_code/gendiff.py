@@ -7,7 +7,7 @@ from hexlet_code.parser.parse_read import parse_read
 
 
 def generate_diff(file_path1, file_path2, format_name='stylish'):
-    """Generate difference between two files"""
+
     data1 = parse_read(file_path1)
     data2 = parse_read(file_path2)
 
@@ -15,7 +15,10 @@ def generate_diff(file_path1, file_path2, format_name='stylish'):
 
     if format_name == 'stylish':
         return format_diff(diff)
-    raise ValueError(f'Unknown format: {format_name}')
+    elif format_name == 'plain':
+        return plain(diff)
+    else:
+        raise ValueError(f'Unknown format: {format_name}')
 
 
 def main():
