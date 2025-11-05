@@ -1,33 +1,52 @@
-def plain(diff_tree):
-    def format_value(value):
-        if isinstance(value, dict):
-            return '[complex value]'
-        if isinstance(value, str):
-            return f"'{value}'"
-        if value is None:
-            return 'null'
-        if isinstance(value, bool):
-            return str(value).lower()
+def _format_value(value):
+    if isinstance(value, dict):
+        return '[complex value]'
+    if isinstance(value, bool):
+        return str(value).lower()
+    if isinstance(value, int):
         return str(value)
+    if value is None:
+        return 'null'
+    if isinstance(value, str):
+        return f"'{value}'"
+    return str(value)
 
-    def walk(tree, path=''):
-        lines = []
-        for key, node in tree.items():
-            node_type = node['type']
-            property_path = f"{path}.{key}" if path else key
 
-            if node_type == 'nested':
-                lines.extend(walk(node['children'], property_path))
-            elif node_type == 'added':
-                val = format_value(node['value'])
-                lines.append(f"Property '{property_path}' was added with value: {val}")
-            elif node_type == 'removed':
-                lines.append(f"Property '{property_path}' was removed")
-            elif node_type == 'changed':
-                old = format_value(node['old_value'])
-                new = format_value(node['new_value'])
-                lines.append(f"Property '{property_path}' was updated. From {old} to {new}")
+def _walk(tree, path=''):
+    lines = []
+    for key, node in tree.items():
+        node_type = node['type']
+        property_path = f"{path}.{key}" if path else key
 
-        return lines
+        if node_type == 'nested':
+            lines.extend(_walk(node['children'], property_path))
+            continue
 
-    return '\n'.join(walk(diff_tree))
+        if node_type == 'added':
+            val = _format_value(node['value'])
+            msg = (
+                f"Property '{property_path}' was added with value: "
+                f"{val}"
+            )
+            lines.append(msg)
+            continue
+
+        if node_type == 'removed':
+            lines.append(f"Property '{property_path}' was removed")
+            continue
+
+        if node_type == 'changed':
+            old = _format_value(node['old_value'])
+            new = _format_value(node['new_value'])
+            msg = (
+                f"Property '{property_path}' was updated. "
+                f"From {old} to {new}"
+            )
+            lines.append(msg)
+            continue
+
+    return lines
+
+
+def plain(diff_tree):
+    return '\n'.join(_walk(diff_tree))
