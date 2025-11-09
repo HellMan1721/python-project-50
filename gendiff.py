@@ -1,4 +1,3 @@
-from src.hexlet_code.gendiff import generate_diff, main
+from src.hexlet_code.gendiff import generate_diff
 
-if __name__ == "__main__":
-    main()
+__all__ = ["generate_diff"]
