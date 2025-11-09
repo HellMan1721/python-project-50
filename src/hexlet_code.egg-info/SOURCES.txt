@@ -10,10 +10,12 @@ src/hexlet_code.egg-info/dependency_links.txt
 src/hexlet_code.egg-info/entry_points.txt
 src/hexlet_code.egg-info/top_level.txt
 src/hexlet_code/formatters/__init__.py
+src/hexlet_code/formatters/json_format.py
 src/hexlet_code/formatters/plain.py
 src/hexlet_code/formatters/stylish.py
 src/hexlet_code/parser/__init__.py
 src/hexlet_code/parser/parse_args.py
 src/hexlet_code/parser/parse_read.py
 tests/test_gendiff.py
+tests/test_json.py
 tests/test_plain.py
