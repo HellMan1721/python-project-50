@@ -1,5 +1,6 @@
-from gendiff.diff import generate_diff
 import argparse
+
+from gendiff.diff import generate_diff
 
 
 def parse_args():
@@ -14,6 +15,7 @@ def parse_args():
         default='stylish'
     )
     return parser.parse_args()
+
 
 def main():
     args = parse_args()

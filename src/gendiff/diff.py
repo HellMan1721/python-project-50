@@ -1,6 +1,7 @@
 # src/gendiff/diff.py
+from .formatters import json_format, plain, stylish
 from .parsing import parse_read
-from .formatters import stylish, plain, json_format
+
 
 def generate_diff(file_path1, file_path2, format_name="stylish"):
     data1 = parse_read(file_path1)
@@ -15,6 +16,7 @@ def generate_diff(file_path1, file_path2, format_name="stylish"):
     }
     formatter = formatters.get(format_name, stylish)
     return formatter(diff_tree)
+
 
 def build_diff_dict(data1, data2):
     diff = {}
