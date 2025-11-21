@@ -3,11 +3,9 @@ def _format_primitive(value, in_nested=False):
         return str(value).lower()
     if value is None:
         return 'null'
-    if isinstance(value, (int, float)):
-        return str(value)
     if isinstance(value, str):
-        return value
-    return str(value)
+        return f'"{value}"' if not in_nested else value
+    return value
 
 
 def _stringify(value, depth=0, in_nested=False):
@@ -27,7 +25,7 @@ def _stringify(value, depth=0, in_nested=False):
     return '\n'.join(lines)
 
 
-def format_diff(diff_dict, depth=0):
+def stylish(diff_dict, depth=0):
     indent_unit = '    '
     base_indent = indent_unit * depth
     lines = ['{']
@@ -39,7 +37,7 @@ def format_diff(diff_dict, depth=0):
         nested_flag = depth > 0
 
         if ntype == 'nested':
-            children = format_diff(node['children'], depth + 1)
+            children = stylish(node['children'], depth + 1)
             lines.append(f'{base_indent}{indent_unit}{key}: {children}')
         elif ntype == 'unchanged':
             val = _stringify(node['value'], depth + 1, in_nested=nested_flag)
