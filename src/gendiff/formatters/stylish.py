@@ -6,7 +6,7 @@ def _format_primitive(value, in_nested=False):
     if isinstance(value, (int, float)):
         return str(value)
     if isinstance(value, str):
-        return value if in_nested else f'"{value}"'
+        return value
     return str(value)
 
 

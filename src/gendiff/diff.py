@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
-from hexlet_code.diff_builder import build_diff
-from hexlet_code.formatters.json_format import json_format
-from hexlet_code.formatters.plain import plain
-from hexlet_code.formatters.stylish import format_diff
-from hexlet_code.parser.parse_args import parse_args
-from hexlet_code.parser.parse_read import parse_read
+from gendiff.diff_builder import build_diff
+from gendiff.formatters.json_format import json_format
+from gendiff.formatters.plain import plain
+from gendiff.formatters.stylish import format_diff
+from gendiff.scripts.gendiff import parse_args
+from gendiff.parsing import parse_read
 
 
 def generate_diff(file_path1, file_path2, format_name='stylish'):
