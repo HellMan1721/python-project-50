@@ -13,13 +13,11 @@ install:
 
 test:
 	@echo "🧪 Running tests..."
-	@. venv/Scripts/activate 2>/dev/null || source venv/bin/activate; \
-	pytest --cov=src --cov-report=term --cov-report=xml tests
+	@pytest --cov=src --cov-report=term --cov-report=xml tests
 
 lint:
 	@echo "🔍 Running linter..."
-	@. venv/Scripts/activate 2>/dev/null || source venv/bin/activate; \
-	ruff check src
+	@ruff check src
 
 git-push:
 	@echo "🚀 Pushing to GitHub..."
@@ -31,6 +29,5 @@ check: lint test
 
 test-coverage:
 	@echo "🧪 Running tests with coverage..."
-	@. venv/Scripts/activate 2>/dev/null || source venv/bin/activate; \
-	pytest --cov=src --cov-report=term --cov-report=xml tests
+	@pytest --cov=src --cov-report=term --cov-report=xml tests
 
