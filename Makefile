@@ -13,7 +13,7 @@ install:
 
 test:
 	@echo "🧪 Running tests..."
-	@pytest --cov=src --cov-report=term --cov-report=xml tests
+	@pytest tests
 
 lint:
 	@echo "🔍 Running linter..."
