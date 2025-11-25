@@ -10,3 +10,4 @@ coverage.xml
 SSH key*
 show_tree.py
 gendiff.egg-info
+.vscode

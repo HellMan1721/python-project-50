@@ -24,7 +24,7 @@ dev-dependencies = [
 package = true
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["gendiff"]
 
 [build-system]
 requires = ["setuptools"]
