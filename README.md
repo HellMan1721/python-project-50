@@ -11,3 +11,6 @@
 
 [![codecov](https://codecov.io/gh/HellMan1721/python-project-50/branch/main/graph/badge.svg)](https://codecov.io/gh/HellMan1721/python-project-50)
 
+[![SonarQube Coverage](https:/sonarcloud.io/api/project_badges/measure?project=HellMan1721_python-project-50&metric=coverage)](https://sonarcloud.io/component_measures/metric/coverage/list?id=HellMan1721_python-project-50)
+
+<b>Этот проект предназначен для вывода разницы между файлами. Реализовано --plain выражение - текстовое выражение изменений, --stylish - вывод построчных изменений. Реализован вывод в YAML и JSON. Для большей информацией воспользуйтесь флагом --help.</b>
