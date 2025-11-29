@@ -1,6 +1,6 @@
 # src/gendiff/diff.py
-from gendiff.formatters import json_format, plain, stylish
-from gendiff.parsing import parse_read
+from formatters import json_format, plain, stylish
+from parsing import parse_read
 
 
 def generate_diff(file_path1, file_path2, format_name="stylish"):

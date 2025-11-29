@@ -1,5 +1,5 @@
-from .json_format import json_format
-from .plain import plain
-from .stylish import stylish
+from formatters import json_format
+from formatters import plain
+from formatters import stylish
 
 __all__ = ['json_format', 'plain', 'stylish']

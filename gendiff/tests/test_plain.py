@@ -1,4 +1,4 @@
-from gendiff.diff import generate_diff
+from diff import generate_diff
 
 
 def test_plain_json():
