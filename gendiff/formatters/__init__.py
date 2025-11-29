@@ -1,5 +1,5 @@
-from gendiff.formatters.json_format import json_format
-from gendiff.formatters.plain import plain
-from gendiff.formatters.stylish import stylish
+from gendiff.formatters import json_format
+from gendiff.formatters import plain
+from gendiff.formatters import stylish
 
 __all__ = ['json_format', 'plain', 'stylish']
