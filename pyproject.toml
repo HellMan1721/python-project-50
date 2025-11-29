@@ -14,7 +14,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
-where = ["gendiff"]
+where = ["."]
 
 [tool.uv]
 dev-dependencies = [
