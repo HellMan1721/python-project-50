@@ -1,6 +1,6 @@
 import json
 
-from diff import generate_diff
+from gendiff.diff import generate_diff
 
 
 def test_json_format():
