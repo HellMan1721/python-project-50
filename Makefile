@@ -13,11 +13,12 @@ install:
 
 test:
 	@echo "🧪 Running tests..."
-	@pytest gendiff/tests
+	@pytest tests
 
 lint:
 	@echo "🔍 Running linter..."
 	@ruff check gendiff
+	@ruff check tests
 
 git-push:
 	@echo "🚀 Pushing to GitHub..."
@@ -29,5 +30,5 @@ check: lint test
 
 test-coverage:
 	@echo "🧪 Running tests with coverage..."
-	@pytest --cov=gendiff --cov-report=term --cov-report=xml gendiff/tests
+	@pytest --cov=gendiff --cov-report=term --cov-report=xml tests
 

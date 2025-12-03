@@ -3,7 +3,7 @@ venv/
 build/
 dist/
 __pycache__/
-.pytest_cach
+.pytest_cache
 .coverage
 coverage.xml
 *.pyc
@@ -12,3 +12,4 @@ show_tree.py
 gendiff.egg-info
 .vscode
 hexlet_code.egg-info
+.ruff_cache

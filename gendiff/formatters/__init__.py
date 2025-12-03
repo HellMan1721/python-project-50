@@ -1,5 +1,3 @@
-from formatters import json_format
-from formatters import plain
-from formatters import stylish
+from gendiff.formatters import json_format, plain, stylish
 
 __all__ = ['json_format', 'plain', 'stylish']
