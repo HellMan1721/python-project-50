@@ -1,7 +1,7 @@
 # src/gendiff/diff.py
-from gendiff.formatters.stylish import stylish
-from gendiff.formatters.plain import plain
 from gendiff.formatters.json_format import json_format
+from gendiff.formatters.plain import plain
+from gendiff.formatters.stylish import stylish
 from gendiff.parsing import parse_read
 
 
