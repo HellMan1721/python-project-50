@@ -2,7 +2,7 @@
 from gendiff.formatters.json_format import json_format
 from gendiff.formatters.plain import plain
 from gendiff.formatters.stylish import stylish
-from gendiff.parsing import parse_read
+from gendiff.scripts.parsing import parse_read
 
 
 def generate_diff(file_path1, file_path2, format_name="stylish"):

@@ -13,3 +13,4 @@ gendiff.egg-info
 .vscode
 hexlet_code.egg-info
 .ruff_cache
+.python-version

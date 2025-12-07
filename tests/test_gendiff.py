@@ -1,6 +1,6 @@
 import os
 
-from gendiff.diff import generate_diff
+from gendiff.scripts.diff import generate_diff
 
 
 def read_file(path):
