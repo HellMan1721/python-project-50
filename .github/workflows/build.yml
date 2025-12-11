@@ -16,14 +16,14 @@ jobs:
       - name: Install dependencies
         run: |
           pip install uv
-          make install
+          uv pip install -e .[dev]
       - name: Run linter and pytest
         run: |
           make check
       - name: Run test coverage
         run: |
           make test-coverage
-          
+
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
         env:
