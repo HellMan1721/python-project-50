@@ -14,3 +14,4 @@ gendiff.egg-info
 hexlet_code.egg-info
 .ruff_cache
 .python-version
+sonar-project.properties
