@@ -1,18 +1,29 @@
-name: Build
+name: Python CI
+
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    types: [opened, synchronize, reopened]
+  - push
+  - pull_request
+
 jobs:
-  sonarqube:
-    name: SonarQube
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          fetch-depth: 0
+          python-version: '3.12'
+      - name: Install dependencies
+        run: |
+          pip install uv
+          make install
+      - name: Run linter and pytest
+        run: |
+          make check
+      - name: Run test coverage
+        run: |
+          make test-coverage
+          
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
         env:

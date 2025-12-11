@@ -12,8 +12,10 @@ install:
 	fi
 
 test:
-	@echo "🧪 Running tests..."
-	@pytest tests
+	uv run pytest
+
+test-coverage:
+	uv run pytest --cov=gendiff --cov-report=xml:coverage.xml
 
 lint:
 	@echo "🔍 Running linter..."
@@ -28,7 +30,4 @@ git-push:
 check: lint test
 	@echo "✅ All checks passed"
 
-test-coverage:
-	@echo "🧪 Running tests with coverage..."
-	@pytest --cov=gendiff --cov-report=term --cov-report=xml tests
 
