@@ -1,7 +1,7 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/HellMan1721/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/HellMan1721/python-project-50/actions)
 
-[![Coverage](https:/sonarcloud.io/api/project_badges/measure?project=HellMan1721_python-project-50&metric=coverage)](https://sonarcloud.io/summary/new_code?id=HellMan1721_python-project-50)
+[![Coverage](https:/sonarcloud.io/api/project_badges/measure?project=HellMan1721_python-project-50&metric=coverage&token=865e4bd1b1e25eac794a2abf4cf8e7a102973188)](https://sonarcloud.io/summary/new_code?id=HellMan1721_python-project-50)
 
 ### gendiff usage on JSON-format files:
 [![asciicast](https://asciinema.org/a/7ZAjCoJmSrk9PR8PQRQo2rdiJ.svg)](https://asciinema.org/a/7ZAjCoJmSrk9PR8PQRQo2rdiJ)
