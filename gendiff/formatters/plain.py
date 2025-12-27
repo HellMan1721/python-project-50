@@ -18,7 +18,6 @@ def _walk(tree, path=''):
 
         if node_type == 'nested':
             lines.extend(_walk(node['children'], property_path))
-            continue
 
         if node_type == 'added':
             val = _format_value(node['value'])
